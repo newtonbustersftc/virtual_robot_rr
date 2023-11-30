@@ -31,37 +31,9 @@ TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
 THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-/* Modified for use in the virtual_robot simulator */
+/* Modified for use in the virtual_robot simulator. */
 
-package org.firstinspires.ftc.robotcore.external.hardware.camera;
+package org.firstinspires.ftc.robotcore.internal.camera.calibration;
 
-import com.qualcomm.robotcore.hardware.HardwareDevice;
-
-import org.firstinspires.ftc.robotcore.internal.system.Deadline;
-
-public class WebcamName implements CameraName, HardwareDevice {
-    @Override
-    public boolean isWebcam() {
-        return false;
-    }
-
-    @Override
-    public boolean isCameraDirection() {
-        return false;
-    }
-
-    @Override
-    public boolean isSwitchable() {
-        return false;
-    }
-
-    @Override
-    public boolean isUnknown() {
-        return false;
-    }
-
-    @Override
-    public boolean requestCameraPermission(Deadline deadline) {
-        return false;
-    }
+public class CameraCalibration {
 }
