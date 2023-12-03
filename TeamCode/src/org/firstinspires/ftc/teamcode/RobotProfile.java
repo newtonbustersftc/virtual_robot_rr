@@ -35,9 +35,9 @@ public class RobotProfile {
     public static RobotProfile loadFromFile() throws FileNotFoundException {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/DD HH:mm:ss");
 
-        File file1 = new File("/Users/haifeng/IdeaProjects/virtual_robot_rr/config/profileA.json");
+        File file1 = new File("config/profileA.json");
         if (!file1.exists()) {
-            file1 = new File("/Users/haifeng/IdeaProjects/virtual_robot_rr/config/profileB.json");
+            file1 = new File("config/profileB.json");
         }
         Gson gson = new Gson();
         RobotProfile profile = gson.fromJson(new FileReader(file1), RobotProfile.class);

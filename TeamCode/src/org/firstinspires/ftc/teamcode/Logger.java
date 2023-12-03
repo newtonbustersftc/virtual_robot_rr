@@ -26,7 +26,7 @@ public class Logger {
             folderCleanup("driver", ".txt", 30);
             folderCleanup("S", ".jpg", 20);
             String timestamp = new SimpleDateFormat("yyyyMMdd-HHmm", Locale.US).format(new Date());
-            File file = new File("/Users/haifeng/IdeaProjects/virtual_robot_rr/data/driver_" + timestamp + ".txt");
+            File file = new File("data/driver_" + timestamp + ".txt");
 
             pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
         } catch(IOException e) {
@@ -59,7 +59,7 @@ public class Logger {
     /** Delete files more than 30 minutes old */
     public static void folderCleanup(String startsWith, String endsWith, int maxCnt) {
         // could use wildcardfilter, but not want to include another Library
-        File file = new File("/Users/haifeng/IdeaProjects/virtual_robot_rr/data");
+        File file = new File("data");
         ArrayList<File> fileList = new ArrayList<File>();
         for(File f : file.listFiles()) {
             if (f.isFile() && f.getName().startsWith(startsWith) && f.getName().endsWith(endsWith)) {
