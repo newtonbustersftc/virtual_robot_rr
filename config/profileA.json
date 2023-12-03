@@ -1,0 +1,405 @@
+{
+  "headingPID": {
+    "p": 8.0,
+    "i": 0.05,
+    "d": 0.0,
+    "f": 0.0
+  },
+  "distancePID": {
+    "p": 0.5,
+    "i": 0.01,
+    "d": 0.0,
+    "f": 0.0
+  },
+  "rrHeadingPID": {
+    "p": 2,
+    "i": 0.05,
+    "d": 0.0,
+    "f": 0.0
+  },
+  "rrTranslationPID": {
+    "p": 13.0,
+    "i": 0.2,
+    "d": 0.5,
+    "f": 0.0
+  },
+  "rrParam": {
+    "kA": 0.002,
+    "kV": 0.017,
+    "kStatic": 0.085,
+    "lateralMultiplier": 1.0042,
+    "maxVel": 30.0,
+    "maxAcc": 30.0
+  },
+  "cvParam": {
+    "redLowerBound": {
+      "val": [
+        230.0,
+        60.0,
+        80.0,
+        0.0
+      ]
+    },
+    "redUpperBound": {
+      "val": [
+        15.0,
+        255.0,
+        255.0,
+        0.0
+      ]
+    },
+    "greenLowerBound": {
+      "val": [
+        38.0,
+        50.0,
+        80.0,
+        0.0
+      ]
+    },
+    "greenUpperBound": {
+      "val": [
+        80.0,
+        255.0,
+        255.0,
+        0.0
+      ]
+    },
+    "blueLowerBound": {
+      "val": [
+        120.0,
+        50.0,
+        50.0,
+        0.0
+      ]
+    },
+    "blueUpperBound": {
+      "val": [
+        200.0,
+        255.0,
+        255.0,
+        0.0
+      ]
+    },
+    "cropTopPercent": 20,
+    "cropBottomPercent": 15,
+    "cropLeftPercent": 0,
+    "cropRightPercent": 0,
+    "minArea": 100
+  },
+  "hardwareSpec": {
+    "revHubVertical": true,
+    "useControlHubImu": true,
+    "trackWidth": 14,
+    "encoderOffset": 0,
+    "wheelBase": 12,
+    "wheelRadius": 0.945,
+    "ticksPerRev": 2000,
+    "forwardOffset": 1.5,
+    "leftEncoderReverse": false,
+    "rightEncoderReverse": true,
+    "horizontalEncoderReverse": true,
+    "grabberOpenPos": 0.31,
+    "gripperServo1Pixel": 0.69,
+    "gripperServo2Pixel": 0.53,
+    "droneServoInitPos": 0.7,
+    "droneServoLoadPos": 0.55,
+    "droneServoShootPos": 0.4,
+    "droneHookClosePos": 0.525,
+    "droneHookOpenPos": 0.4,
+    "droppingServoUp":1.0,
+    "droppingServoDown":0.7,
+    "intakeDropSpikeStep": -5,
+    "intakePower": -0.5,
+    "intakeReversePower": 1,
+    "intakeServo1In": 0.0,
+    "intakeServo1Out": 1.0,
+    "intakeServo1Stop": 0.5,
+    "intakeServo2In": 0.44,
+    "intakeServo2Out": 1.0,
+    "intakeServo2Stop": 0.5,
+    "liftMax": 1500,
+    "liftOutMin": 700,
+    "liftIntakePos": 200,
+    "liftIncrement": 250,
+    "liftPowerUp": 0.4,
+    "liftPowerDown": 0.4,
+    "gripperInOutServoOut":0.6,
+    "gripperInOutServoDrop": 0.55,
+    "gripperInOutServoIn":0.2875,
+    "gripperRotateServoUp":0.5385,
+    "gripperRotateServoLeft":0.8275,
+    "gripperRotateServoRight":0.225,
+    "dropPixelDist": 4.1,
+    "leftOffsetDist": -0.6,
+    "autoDropMaxDist": 12,
+    "afterDropDist": 5.0,
+    "autoDropMinPower": 0.05,
+    "autoDropMaxPower": 0.2,
+    "autoDropP": 1.0
+  },
+  "poses": {
+    "START_POSE_BLUE_LEFT":{
+      "x":12,
+      "y":62,
+      "heading":90
+    },
+    "TEAM_PROP_POS_LEFT_BLUE_LEFT": {
+      "x": 31,
+      "y": 41,
+      "heading": 45.0
+    },
+    "TEAM_PROP_POS_CENTER_BLUE_LEFT": {
+      "x": 16,
+      "y": 33,
+      "heading": 90.0
+    },
+    "TEAM_PROP_POS_RIGHT_BLUE_LEFT": {
+      "x": 11,
+      "y": 34,
+      "heading":0.0
+    },
+    "START_POSE_BLUE_RIGHT":{
+      "x":-36,
+      "y":62,
+      "heading":90
+    },
+    "START_POSE_RED_LEFT":{
+      "x":-36,
+      "y":-62,
+      "heading":-90
+    },
+
+    "START_POSE_RED_RIGHT":{
+      "x":12,
+      "y":-62,
+      "heading":-90
+    },
+    "TEAM_PROP_POS_LEFT_BLUE_RIGHT": {
+      "x": -35,
+      "y": 36,
+      "heading": 180.0
+    },
+    "WAY_POINT1_LEFT_BLUE_RIGHT": {
+      "x": -40,
+      "y": 8,
+      "heading": 0
+    },
+    "WAY_POINT2_LEFT_BLUE_RIGHT": {
+      "x": 0,
+      "y": 0,
+      "heading": 0
+    },
+    "WAY_POINT3_LEFT_BLUE_RIGHT": {
+      "x": 24,
+      "y": 28,
+      "heading": 0
+    },
+    "WAY_POINT1_CENTER_BLUE_RIGHT": {
+      "x": -50,
+      "y": 38,
+      "heading": 0
+    },
+    "WAY_POINT2_CENTER_BLUE_RIGHT": {
+      "x": 15,
+      "y": 38,
+      "heading": 0
+    },
+    "WAY_POINT1_RIGHT_BLUE_RIGHT": {
+      "x": -32,
+      "y": 38,
+      "heading": 0
+    },
+    "WAY_POINT2_RIGHT_BLUE_RIGHT": {
+      "x": 15,
+      "y": 38,
+      "heading": 0
+    },
+    "TEAM_PROP_POS_CENTER_BLUE_RIGHT": {
+      "x": -46,
+      "y": 33,
+      "heading": 135.0
+    },
+    "TEAM_PROP_POS_RIGHT_BLUE_RIGHT": {
+      "x": -41,
+      "y": 38,
+      "heading":45
+    },
+    "TEAM_PROP_POS_LEFT_RED_LEFT": {
+      "x": -41,
+      "y":-35 ,
+      "heading": -45.0
+    },
+    "TEAM_PROP_POS_CENTER_RED_LEFT": {
+      "x": -46,
+      "y": -33,
+      "heading": -135.0
+    },
+    "TEAM_PROP_POS_RIGHT_RED_LEFT": {
+      "x": -35,
+      "y": -36,
+      "heading":180
+    },
+    "WAY_POINT1_RIGHT_RED_LEFT": {
+      "x": -40,
+      "y": -8,
+      "heading": 0
+    },
+    "WAY_POINT2_RIGHT_RED_LEFT": {
+      "x": 0,
+      "y": 0,
+      "heading": 0
+    },
+    "WAY_POINT3_RIGHT_RED_LEFT": {
+      "x": 24,
+      "y": -28,
+      "heading": 0
+    },
+    "WAY_POINT1_CENTER_RED_LEFT": {
+      "x": -50,
+      "y": -38,
+      "heading": 0
+    },
+    "WAY_POINT2_CENTER_RED_LEFT": {
+      "x": 15,
+      "y": -38,
+      "heading": 0
+    },
+    "WAY_POINT1_LEFT_RED_LEFT": {
+      "x": -32,
+      "y": -38,
+      "heading": 0
+    },
+    "WAY_POINT2_LEFT_RED_LEFT": {
+      "x": 15,
+      "y": -38,
+      "heading": 0
+    },
+    "TEAM_PROP_POS_LEFT_RED_RIGHT": {
+      "x": 11,
+      "y": -34,
+      "heading": 0.0
+    },
+    "TEAM_PROP_POS_CENTER_RED_RIGHT": {
+      "x": 16,
+      "y": -35,
+      "heading": -90.0
+    },
+    "TEAM_PROP_POS_RIGHT_RED_RIGHT": {
+      "x": 31,
+      "y": -41,
+      "heading":-45.0
+    },
+    "DROPBOARD_APRILTAG_BLUE_LEFT": {
+      "x": 49,
+      "y": 41,
+      "heading": 0.0
+    },
+    "DROPBOARD_APRILTAG_BLUE_CENTER": {
+      "x": 49,
+      "y": 35,
+      "heading": 0.0
+    },
+    "DROPBOARD_APRILTAG_BLUE_RIGHT": {
+      "x": 49,
+      "y": 29,
+      "heading": 0.0
+    },
+    "DROPBOARD_APRILTAG_RED_LEFT": {
+      "x": 49,
+      "y": -29,
+      "heading": 0.0
+    },
+    "DROPBOARD_APRILTAG_RED_CENTER": {
+      "x": 49,
+      "y": -35,
+      "heading": 0.0
+    },
+    "DROPBOARD_APRILTAG_RED_RIGHT": {
+      "x": 49,
+      "y": -41,
+      "heading": 0.0
+    },
+    "PARKING_BLUE_LEFT": {
+      "x": 49,
+      "y": 62,
+      "heading": 0.0
+    },
+    "PARKING_BLUE_RIGHT": {
+      "x": 49,
+      "y": 12,
+      "heading": 0.0
+    },
+    "PARKING_RED_LEFT": {
+      "x": 49,
+      "y": -12,
+      "heading": 0.0
+    },
+    "PARKING_RED_RIGHT": {
+      "x": 49,
+      "y": -62,
+      "heading": 0.0
+    }
+  },
+  "autonParam": {
+    "fastVelocity": 35.0,
+    "fastAngVelo": 35.0,
+    "fastAcceleration": 30.0,
+    "normVelocity": 30.0,
+    "normAngVelo": 30.0,
+    "normAcceleration": 20.0,
+    "liftGroundDrop": 40,
+    "liftStack5": 141,
+    "liftStack4": 106,
+    "liftUpSafe": 380,
+    "pickStraftLeft": 16,
+    "pickStraftRight": 16,
+    "armLengthLeftDrop1": 0.66,
+    "armLengthRightDrop1": 0.67,
+    "armLengthDropLow": 0.42,
+    "armLengthDropLowRight": 0.48,
+    "armLengthDropGround": 0.5,
+    "armLengthDropGroundRight": 0.52,
+    "armLengthDrop": 0.55,
+    "armLengthPickLeft": 0.47,
+    "armLengthPickRight": 0.39,
+    "armLengthPostPick": 0.13,
+    "armLengthPostLeftPickHighPole": 0.5,
+    "armLengthPostRightPickHighPole": 0.52,
+    "forward": 50,
+    "forward_mid": 32,
+    "back1": 8,
+    "backPick": 21
+  },
+  "poleParameter": {
+    "gain": 64,
+    "focus": 15,
+    "exposureMs": 30,
+    "whiteBalance": 5000,
+    "lowerBound": {
+      "val": [
+        20.0,
+        120.0,
+        80.0,
+        0.0
+      ]
+    },
+    "upperBound": {
+      "val": [
+        45.0,
+        255.0,
+        255.0,
+        0.0
+      ]
+    },
+    "samplesEachSide": 8,
+    "minSize": 600,
+    "cropXywh": [
+      0, 220, 640, 40
+    ],
+    "centerPosition": [
+      17,38,73,111,156,190,229,261,298,330,370,405,447,483,523,566,603
+    ],
+    "aFactor": 35.657,
+    "bFactor": -0.052
+  }
+}
