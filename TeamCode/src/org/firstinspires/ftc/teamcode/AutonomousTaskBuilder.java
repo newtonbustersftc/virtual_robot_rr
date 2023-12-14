@@ -87,46 +87,59 @@ public class AutonomousTaskBuilder {
             taskList.add(new SplineMoveTask(drive, dropBoard_traj));
         }
         else {
-            Pose2d outPose = robotProfile.getProfilePose("HZ_OUT_" + startPosMode);
-            Pose2d rot1Pose = robotProfile.getProfilePose("HZ_ROT1_" + teamPropPos + "_" +startPosMode);
-            Pose2d spk1Pose = robotProfile.getProfilePose("HZ_SPIKE1_" + teamPropPos + "_" +startPosMode);
-            Pose2d spkPose = robotProfile.getProfilePose("HZ_SPIKE_" + teamPropPos + "_" +startPosMode);
+            Pose2d outPose = getProfilePose("HZ_OUT" );
+            Pose2d rot1Pose = getProfilePose("HZ_ROT1");
+            Pose2d spkPose = getProfilePose("HZ_SPIKE");
+            Pose2d aftSpkPose = getProfilePose("HZ_AFT_SPIKE");
             TrajectorySequence outTrj = drive.trajectorySequenceBuilder(startingPose)
                     .lineToConstantHeading(outPose.vec())
                     .build();
             taskList.add(new SplineMoveTask(drive, outTrj));
             TrajectorySequence rot1Trj = drive.trajectorySequenceBuilder(outPose)
-                    .lineToLinearHeading(rot1Pose)
+                    .turn(rot1Pose.getHeading() - outPose.getHeading())
                     .build();
             taskList.add(new SplineMoveTask(drive, rot1Trj));
-            TrajectorySequenceBuilder spkblder = drive.trajectorySequenceBuilder(rot1Pose);
-            if (spk1Pose!=null) {
-                spkblder.lineToConstantHeading(spk1Pose.vec());
-            }
-            spkblder.lineToConstantHeading(spkPose.vec());
-            taskList.add(new SplineMoveTask(drive, spkblder.build()));
-            taskList.add(new RobotSleep(2000, "DROP SPIKE"));
-            Pose2d wp1Pose = robotProfile.getProfilePose("HZ_WP1_" + teamPropPos + "_" +startPosMode);
-            Pose2d wp2Pose = robotProfile.getProfilePose("HZ_WP2_" + teamPropPos + "_" +startPosMode);
-            Pose2d preAprilPose = robotProfile.getProfilePose("HZ_PRE_APRIL_" +startPosMode);
-            Pose2d aprilPose = robotProfile.getProfilePose("HZ_APRIL_" +startPosMode);
-            TrajectorySequence trjBeforeCross = drive.trajectorySequenceBuilder(spkPose)
-                    .lineTo(wp1Pose.vec())
-                    .lineToLinearHeading(wp2Pose)
+            TrajectorySequence spikeTrj = drive.trajectorySequenceBuilder(rot1Pose)
+                    .lineTo(spkPose.vec())
                     .build();
-            taskList.add(new SplineMoveTask(drive, trjBeforeCross));
-            TrajectorySequence trjApril = drive.trajectorySequenceBuilder(wp2Pose)
+            taskList.add(new SplineMoveTask(drive, spikeTrj));
+            taskList.add(new RobotSleep(1000, "DROP SPIKE"));
+            TrajectorySequence aftSpikeTrj = drive.trajectorySequenceBuilder(spkPose)
+                    .lineTo(aftSpkPose.vec())
+                    .build();
+            taskList.add(new SplineMoveTask(drive, aftSpikeTrj));
+            Pose2d rot2Pose = getProfilePose("HZ_ROT2");
+            TrajectorySequence rot2Trj = drive.trajectorySequenceBuilder(aftSpkPose)
+                    .turn(rot2Pose.getHeading() - aftSpkPose.getHeading())
+                    .build();
+            taskList.add(new SplineMoveTask(drive, rot2Trj));
+            Pose2d prePickPose = getProfilePose("HZ_PRE_PICK");
+            Pose2d pickPose = getProfilePose("HZ_PICK");
+            TrajectorySequence pickTrj = drive.trajectorySequenceBuilder(rot2Pose)
+                    .setReversed(true)
+                    .splineTo(prePickPose.vec(), prePickPose.getHeading()-Math.PI)
+                    .lineTo(pickPose.vec())
+                    .build();
+            taskList.add(new SplineMoveTask(drive, pickTrj));
+            taskList.add(new RobotSleep(2000, "PICKING"));
+
+            Pose2d preAprilPose = getProfilePose("HZ_PRE_APRIL");
+            Pose2d aprilPose = getProfilePose("HZ_APRIL");
+            TrajectorySequence toAprilTag = drive.trajectorySequenceBuilder(pickPose)
                     .lineTo(preAprilPose.vec())
-                    .lineTo(aprilPose.vec())
+                    .lineToLinearHeading(aprilPose)
                     .build();
-            taskList.add(new SplineMoveTask(drive, trjApril));
+            taskList.add(new SplineMoveTask(drive, toAprilTag));
         }
 
         return taskList;
     }
 
     Pose2d getProfilePose(String name) {
-        RobotProfile.AutoPose ap = robotProfile.poses.get(name);
+        RobotProfile.AutoPose ap = robotProfile.poses.get(name + "_" + startPosMode);
+        if (ap==null) {
+            ap = robotProfile.poses.get(name + "_" + teamPropPos + "_" + startPosMode);
+        }
         return new Pose2d(ap.x, ap.y, Math.toRadians(ap.heading));
     }
 

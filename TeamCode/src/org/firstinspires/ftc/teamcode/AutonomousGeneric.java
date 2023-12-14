@@ -73,7 +73,7 @@ public class AutonomousGeneric extends LinearOpMode {
                 telemetry.update();
             }
         }
-        AutonomousTaskBuilder builder = new AutonomousTaskBuilder(robotHardware, robotProfile, "CENTER", startingPose);
+        AutonomousTaskBuilder builder = new AutonomousTaskBuilder(robotHardware, robotProfile, "LEFT", startingPose);
 
         robotHardware.resetDriveAndEncoders();
         robotHardware.getLocalizer().setPoseEstimate(startingPose);

@@ -340,31 +340,36 @@
     },
     "HZ_OUT_BLUE_RIGHT": {
       "x": -36,
-      "y": 58,
+      "y": 32,
       "heading": 90
     },
-    "HZ_ROT1_CENTER_BLUE_RIGHT": {
+    "HZ_ROT1_LEFT_BLUE_RIGHT": {
       "x": -36,
-      "y": 50,
+      "y": 32,
       "heading": 180
     },
-    "HZ_SPIKE1_CENTER_BLUE_RIGHT": {
+    "HZ_SPIKE_LEFT_BLUE_RIGHT": {
+      "x": -33,
+      "y": 32,
+      "heading": 180
+    },
+    "HZ_AFT_SPIKE_LEFT_BLUE_RIGHT": {
       "x": -36,
-      "y": 26,
+      "y": 32,
       "heading": 180
     },
-    "HZ_SPIKE_CENTER_BLUE_RIGHT": {
-      "x": -44,
-      "y": 26,
-      "heading": 180
+    "HZ_ROT2_LEFT_BLUE_RIGHT": {
+      "x": -36,
+      "y": 32,
+      "heading": 0
     },
-    "HZ_WP1_CENTER_BLUE_RIGHT": {
+    "HZ_PRE_PICK_BLUE_RIGHT": {
       "x": -48,
-      "y": 26,
-      "heading": 180
+      "y": 12,
+      "heading": 0
     },
-    "HZ_WP2_CENTER_BLUE_RIGHT": {
-      "x": -48,
+    "HZ_PICK_BLUE_RIGHT": {
+      "x": -62,
       "y": 12,
       "heading": 0
     },
@@ -375,7 +380,7 @@
     },
     "HZ_APRIL_BLUE_RIGHT": {
       "x": 36,
-      "y": 36,
+      "y": 30,
       "heading": 0
     }
   },
