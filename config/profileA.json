@@ -340,36 +340,81 @@
     },
     "HZ_OUT_BLUE_RIGHT": {
       "x": -36,
-      "y": 32,
+      "y": 34,
       "heading": 90
     },
     "HZ_ROT1_LEFT_BLUE_RIGHT": {
       "x": -36,
-      "y": 32,
+      "y": 34,
       "heading": 180
     },
     "HZ_SPIKE_LEFT_BLUE_RIGHT": {
       "x": -33,
-      "y": 32,
+      "y": 34,
       "heading": 180
     },
     "HZ_AFT_SPIKE_LEFT_BLUE_RIGHT": {
       "x": -36,
-      "y": 32,
+      "y": 34,
       "heading": 180
     },
-    "HZ_ROT2_LEFT_BLUE_RIGHT": {
+    "HZ_ROT1_RIGHT_BLUE_RIGHT": {
       "x": -36,
-      "y": 32,
+      "y": 34,
       "heading": 0
     },
-    "HZ_PRE_PICK_BLUE_RIGHT": {
+    "HZ_SPIKE_RIGHT_BLUE_RIGHT": {
+      "x": -39,
+      "y": 34,
+      "heading": 0
+    },
+    "HZ_AFT_SPIKE_RIGHT_BLUE_RIGHT": {
+      "x": -36,
+      "y": 34,
+      "heading": 0
+    },
+    "HZ_OUT_CENTER_BLUE_RIGHT": {
+      "x": -36,
+      "y": 24,
+      "heading": 90
+    },
+    "HZ_ROT1_CENTER_BLUE_RIGHT": {
+      "x": -36,
+      "y": 24,
+      "heading": 180
+    },
+    "HZ_SPIKE_CENTER_BLUE_RIGHT": {
+      "x": -44,
+      "y": 24,
+      "heading": 180
+    },
+    "HZ_AFT_SPIKE_CENTER_BLUE_RIGHT": {
+      "x": -48,
+      "y": 24,
+      "heading": 180
+    },
+    "HZ_ROT2_CENTER_BLUE_RIGHT": {
+      "x": -48,
+      "y": 24,
+      "heading": 0
+    },
+    "HZ_PRE_PICK_CENTER_BLUE_RIGHT": {
       "x": -48,
       "y": 12,
       "heading": 0
     },
+    "HZ_PRE_PICK_BLUE_RIGHT": {
+      "x": -36,
+      "y": 12,
+      "heading": 0
+    },
     "HZ_PICK_BLUE_RIGHT": {
-      "x": -62,
+      "x": -58,
+      "y": 12,
+      "heading": 0
+    },
+    "HZ_AFT_PICK_BLUE_RIGHT": {
+      "x": -54,
       "y": 12,
       "heading": 0
     },
