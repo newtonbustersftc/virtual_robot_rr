@@ -348,18 +348,23 @@
       "y": 34,
       "heading": 180
     },
+    "HZ_ROT2_LEFT_BLUE_RIGHT": {
+      "x": -36,
+      "y": 34,
+      "heading": 0
+    },
     "HZ_SPIKE_LEFT_BLUE_RIGHT": {
       "x": -33,
       "y": 34,
       "heading": 180
     },
     "HZ_AFT_SPIKE_LEFT_BLUE_RIGHT": {
-      "x": -36,
+      "x": -40,
       "y": 34,
       "heading": 180
     },
     "HZ_ROT1_RIGHT_BLUE_RIGHT": {
-      "x": -36,
+      "x": -40,
       "y": 34,
       "heading": 0
     },
@@ -389,44 +394,114 @@
       "heading": 180
     },
     "HZ_AFT_SPIKE_CENTER_BLUE_RIGHT": {
-      "x": -48,
+      "x": -52,
       "y": 24,
       "heading": 180
     },
     "HZ_ROT2_CENTER_BLUE_RIGHT": {
-      "x": -48,
+      "x": -52,
       "y": 24,
       "heading": 0
     },
     "HZ_PRE_PICK_CENTER_BLUE_RIGHT": {
-      "x": -48,
-      "y": 12,
+      "x": -52,
+      "y": 60,
       "heading": 0
     },
     "HZ_PRE_PICK_BLUE_RIGHT": {
-      "x": -36,
-      "y": 12,
+      "x": -40,
+      "y": 36,
       "heading": 0
     },
     "HZ_PICK_BLUE_RIGHT": {
       "x": -58,
-      "y": 12,
+      "y": 36,
       "heading": 0
     },
     "HZ_AFT_PICK_BLUE_RIGHT": {
       "x": -54,
-      "y": 12,
+      "y": 36,
+      "heading": 0
+    },
+    "HZ_AFTPICK_WP1_BLUE_RIGHT": {
+      "x": -32,
+      "y": 60,
       "heading": 0
     },
     "HZ_PRE_APRIL_BLUE_RIGHT": {
-      "x": 36,
-      "y": 12,
+      "x": 30,
+      "y": 60,
       "heading": 0
     },
     "HZ_APRIL_BLUE_RIGHT": {
-      "x": 36,
-      "y": 30,
+      "x": 40,
+      "y": 36,
       "heading": 0
+    },
+    "HZ_BOARD_BLUE_RIGHT": {
+      "x": 48,
+      "y": 42,
+      "heading": 0
+    },
+    "HZ_OUT_BLUE_LEFT":{
+      "x":12,
+      "y":34,
+      "heading":90
+    },
+    "HZ_ROT1_BLUE_LEFT": {
+      "x": 12,
+      "y": 34,
+      "heading": 0
+    },
+    "HZ_SPIKE_LEFT_BLUE_LEFT":{
+      "x":33,
+      "y":34,
+      "heading":0
+    },
+    "HZ_SPIKE_RIGHT_BLUE_LEFT":{
+      "x":9,
+      "y":34,
+      "heading":0
+    },
+    "HZ_AFT_SPIKE_BLUE_LEFT":{
+      "x":45,
+      "y":34,
+      "heading":0
+    },
+    "HZ_OUT_CENTER_BLUE_LEFT":{
+      "x":12,
+      "y":24,
+      "heading":90
+    },
+    "HZ_ROT1_CENTER_BLUE_LEFT": {
+      "x": 12,
+      "y": 24,
+      "heading": 0
+    },
+    "HZ_SPIKE_CENTER_BLUE_LEFT":{
+      "x":18,
+      "y":24,
+      "heading":0
+    },
+    "HZ_AFT_SPIKE_CENTER_BLUE_LEFT":{
+      "x":45,
+      "y":24,
+      "heading":0
+    },
+    "HZ_PIXEL_LEFT_BLUE_LEFT": {
+      "x": 45,
+      "y": 42,
+      "heading":0
+    },
+    "HZ_PIXEL_CENTER_BLUE_LEFT": {
+      "x": 45,
+      "y": 36,
+      "heading":0
+    },
+    "HZ_PIXEL_RIGHT_BLUE_LEFT": {
+      "x": 45,
+      "y": 30,
+      "heading":0
     }
   },
   "autonParam": {

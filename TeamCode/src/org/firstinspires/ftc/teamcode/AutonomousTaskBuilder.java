@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
+import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.acmerobotics.roadrunner.trajectory.constraints.AngularVelocityConstraint;
 import com.acmerobotics.roadrunner.trajectory.constraints.MecanumVelocityConstraint;
 import com.acmerobotics.roadrunner.trajectory.constraints.MinVelocityConstraint;
@@ -26,12 +27,9 @@ public class AutonomousTaskBuilder {
     String startPosMode;
     String parking;
     Pose2d startingPose;
-    Pose2d lastLocation;
-    String teamPropPos;  //= RobotCVProcessor.TEAM_PROP_POS.CENTER;
-    TrajectorySequence dropBoard_traj_a=null, dropBoard_traj_b=null, dropBoard_traj_c=null;
+    String teamPropPos;
 
-    boolean isFarSideLeft =false;
-    TrajectorySequence  team_prop_pos_traj=null,dropBoard_traj=null,lastTrajectory=null;
+
     boolean isRed;
     boolean isFar;
 
@@ -74,17 +72,24 @@ public class AutonomousTaskBuilder {
         Pose2d parkingPose = robotProfile.getProfilePose("PARKING_" + startPosMode);
 
         if (!isFar) {
-            team_prop_pos_traj = drive.trajectorySequenceBuilder(startingPose)
-                    .setReversed(true)
-                    .splineTo(propPose.vec(), propPose.getHeading() + Math.PI)
+            Pose2d outPose = getProfilePose("HZ_OUT" );
+            Pose2d rot1Pose = getProfilePose("HZ_ROT1");
+            Pose2d spkPose = getProfilePose("HZ_SPIKE");
+            Pose2d aftSpkPose = getProfilePose("HZ_AFT_SPIKE");
+            Pose2d pixelPose = getProfilePose("HZ_PIXEL");
+            TrajectorySequence spkTrj = drive.trajectorySequenceBuilder(startingPose)
+                    .lineToConstantHeading(outPose.vec())
+                    .turn(rot1Pose.getHeading() - outPose.getHeading())
+                    .lineTo(spkPose.vec())
                     .build();
-
-            taskList.add(new SplineMoveTask(drive, team_prop_pos_traj));
-            taskList.add(new RobotSleep(2000, "DropSpike"));
-            dropBoard_traj = drive.trajectorySequenceBuilder(team_prop_pos_traj.end())
-                    .splineTo(dropPose.vec(), dropPose.getHeading())
-                    .build();
-            taskList.add(new SplineMoveTask(drive, dropBoard_traj));
+            taskList.add(new SplineMoveTask(drive, spkTrj));
+            // Drop spike by lifting the intake
+            taskList.add(new RobotSleep(1000, "DROP SPIKE"));
+            // Move to pick up pixel
+            TrajectorySequenceBuilder aftSpikeTrjBldr = drive.trajectorySequenceBuilder(spkPose)
+                    .lineTo(aftSpkPose.vec())
+                    .lineTo(pixelPose.vec());
+            taskList.add(new SplineMoveTask(drive, aftSpikeTrjBldr.build()));
         }
         else {
             Pose2d outPose = getProfilePose("HZ_OUT" );
@@ -95,8 +100,10 @@ public class AutonomousTaskBuilder {
             Pose2d prePickPose = getProfilePose("HZ_PRE_PICK");
             Pose2d pickPose = getProfilePose("HZ_PICK");
             Pose2d aftPickPose = getProfilePose("HZ_AFT_PICK");
+            Pose2d aftPickWp1Pose = getProfilePose("HZ_AFTPICK_WP1");
             Pose2d preAprilPose = getProfilePose("HZ_PRE_APRIL");
             Pose2d aprilPose = getProfilePose("HZ_APRIL");
+            dropPose = getProfilePose("HZ_BOARD");
             // Move out to the drop spike mark
             TrajectorySequence spkTrj = drive.trajectorySequenceBuilder(startingPose)
                     .lineToConstantHeading(outPose.vec())
@@ -125,12 +132,17 @@ public class AutonomousTaskBuilder {
             taskList.add(new SplineMoveTask(drive, pickMoveBackTrj));
             taskList.add(new RobotSleep(2000, "Full Power Pick up"));
             // Move to read AprilTag
-            TrajectorySequence toAprilTrj = drive.trajectorySequenceBuilder(aftPickPose)
-                    .lineTo(preAprilPose.vec())
-                    .lineTo(aprilPose.vec())
+            Trajectory toAprilTrj = drive.trajectoryBuilder(aftPickPose)
+                    .splineToConstantHeading(aftPickWp1Pose.vec(), aftPickWp1Pose.getHeading())
+                    .splineToConstantHeading(preAprilPose.vec(), preAprilPose.getHeading())
+                    .splineToConstantHeading(aprilPose.vec(), aprilPose.getHeading())
                     .build();
             taskList.add(new SplineMoveTask(drive, toAprilTrj));
-            taskList.add(new RobotSleep(2000, "PICKING"));
+            taskList.add(new RobotSleep(500, "Recognizing"));
+            Trajectory toDropTrj = drive.trajectoryBuilder(aprilPose)
+                    .splineToConstantHeading(dropPose.vec(), dropPose.getHeading())
+                    .build();
+            taskList.add(new SplineMoveTask(drive, toDropTrj));
         }
         return taskList;
     }
